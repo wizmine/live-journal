@@ -1,21 +1,20 @@
 "use client";
 
 import { useArticles } from "@/hooks/useArticles";
-import { Button, Flex, Input, List, Space } from "antd";
+import { Button, Flex, Input, List, Space, Spin } from "antd";
 import React, { useState } from "react";
 import SingleArticle from "./SingleArticle";
 import { useCreateArticle } from "@/hooks/useCreateArticle";
 import { useAuth } from "@/hooks/useAuth";
 
 const ArticlesView = () => {
-  const { articles } = useArticles();
+  const { articles, isLoading } = useArticles();
   const { createArticle } = useCreateArticle();
   const { user } = useAuth();
   const [searchArticle, setSearchArticle] = useState("");
   const [newArticle, setNewArticle] = useState("");
-  const reversedData = articles?.reverse();
 
-  const filteredArticles = reversedData?.filter((article) =>
+  const filteredArticles = articles?.filter((article) =>
     article.content.toLowerCase().includes(searchArticle.toLowerCase())
   );
 
@@ -45,25 +44,29 @@ const ArticlesView = () => {
         style={{ width: "700px" }}
         onChange={(e) => setSearchArticle(e.target.value)}
       />
-      <List
-        pagination={{
-          onChange: (page) => {
-            console.log(page);
-          },
-          pageSize: 6,
-          align: "center",
-        }}
-        dataSource={filteredArticles}
-        style={{ width: "700px" }}
-        renderItem={(item) => (
-          <SingleArticle
-            authorId={item.author.id}
-            id={item.id}
-            name={item.author.name}
-            content={item.content}
-          />
-        )}
-      />
+      {isLoading ? (
+        <Spin />
+      ) : (
+        <List
+          pagination={{
+            onChange: (page) => {
+              console.log(page);
+            },
+            pageSize: 5,
+            align: "center",
+          }}
+          dataSource={filteredArticles}
+          style={{ width: "700px" }}
+          renderItem={(item) => (
+            <SingleArticle
+              authorId={item.author.id}
+              id={item.id}
+              name={item.author.name}
+              content={item.content}
+            />
+          )}
+        />
+      )}
     </Flex>
   );
 };
