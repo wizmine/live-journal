@@ -10,7 +10,7 @@ const NavBar = () => {
   const { user } = useAuth();
 
   return (
-    <>
+    <nav>
       {user ? (
         <LogoutButton />
       ) : (
@@ -18,7 +18,7 @@ const NavBar = () => {
           <Button type="primary">Sign In</Button>
         </Link>
       )}
-    </>
+    </nav>
   );
 };
 
