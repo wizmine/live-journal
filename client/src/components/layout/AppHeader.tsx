@@ -5,7 +5,7 @@ import { Flex } from "antd";
 import Title from "antd/es/typography/Title";
 import { Header } from "antd/lib/layout/layout";
 import Link from "next/link";
-import NavBar from "./NavBar";
+import NavBar from "../NavBar";
 
 const AppHeader = () => {
   const [isShow, setIsShow] = useState(false);
