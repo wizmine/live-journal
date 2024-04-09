@@ -17,3 +17,12 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.block {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.block-show {
+  opacity: 1;
+}

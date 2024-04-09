@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import LogoutButton from "./LogoutButton";
+import LogoutButton from "../ui/buttons/LogoutButton";
 import { Button } from "antd";
 import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
