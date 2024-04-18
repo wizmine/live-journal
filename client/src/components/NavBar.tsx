@@ -12,7 +12,15 @@ const NavBar = () => {
   return (
     <nav>
       {user ? (
-        <LogoutButton />
+        <>
+          <Link href={`/chat`} style={{ marginRight: "10px" }}>
+            <Button type="primary">Chat</Button>
+          </Link>
+          <Link href={`/profile/${user.id}`} style={{ marginRight: "10px" }}>
+            <Button type="primary">Profile</Button>
+          </Link>
+          <LogoutButton />
+        </>
       ) : (
         <Link href="/auth" style={{ marginRight: "10px" }}>
           <Button type="primary">Sign In</Button>

@@ -15,6 +15,12 @@ export class UserService {
       },
       include: {
         articles: true,
+        chats: {
+          include: {
+            participants: true,
+            messages: true,
+          },
+        },
       },
     });
   }
@@ -34,6 +40,7 @@ export class UserService {
         email: true,
         name: true,
         articles: true,
+        chats: true,
       },
     });
   }

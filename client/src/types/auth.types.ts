@@ -1,4 +1,5 @@
 import { IArticleResponse } from "./article.types";
+import { IChat } from "./chat.types";
 
 export interface IAuthForm {
   email: string;
@@ -11,6 +12,7 @@ export interface IAuthor {
   name: string;
   email: string;
   articles: IArticleResponse[];
+  chats: IChat[];
 }
 
 export interface IAuthResponse {

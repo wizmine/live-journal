@@ -17,6 +17,7 @@ const SingleArticle = ({ id, content, name, authorId }: Props) => {
   const [isEditing, setEditing] = useState(false);
   const { user } = useAuth();
   const currentUser = user?.id === authorId;
+  const filteredName = name === "" ? "Anonymous" : name;
 
   return (
     <Flex vertical align="center">
@@ -25,7 +26,7 @@ const SingleArticle = ({ id, content, name, authorId }: Props) => {
           id={id}
           content={content}
           currentUser={currentUser}
-          name={name}
+          name={filteredName}
           isEditing={isEditing}
           setEditing={setEditing}
           key={id}

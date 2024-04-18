@@ -28,7 +28,7 @@ const Auth = () => {
   };
 
   return (
-    <Flex align="center" justify="center">
+    <Flex align="center" justify="center" >
       <Form
         name="basic"
         labelCol={{ span: 8 }}

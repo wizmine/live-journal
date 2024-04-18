@@ -22,41 +22,44 @@ const AppContent = () => {
   );
 
   return (
-    <main className={`block ${isShow ? "block-show" : ""}`}>
-      <Flex vertical align="center" justify="center">
-        {user && <CreateArticle />}
-        <Input
-          type="text"
-          placeholder="Search article..."
-          value={searchArticle}
+    <Flex
+      vertical
+      align="center"
+      justify="center"
+      className={`block ${isShow ? "block-show" : ""}`}
+    >
+      {user && <CreateArticle />}
+      <Input
+        type="text"
+        placeholder="Search article..."
+        value={searchArticle}
+        style={{ width: "700px" }}
+        onChange={(e) => setSearchArticle(e.target.value)}
+      />
+      {isLoading ? (
+        <Spin />
+      ) : (
+        <List
+          pagination={{
+            onChange: (page) => {
+              console.log(page);
+            },
+            pageSize: 5,
+            align: "center",
+          }}
+          dataSource={filteredArticles}
           style={{ width: "700px" }}
-          onChange={(e) => setSearchArticle(e.target.value)}
+          renderItem={(item) => (
+            <SingleArticle
+              authorId={item.author.id}
+              id={item.id}
+              name={item.author.name}
+              content={item.content}
+            />
+          )}
         />
-        {isLoading ? (
-          <Spin />
-        ) : (
-          <List
-            pagination={{
-              onChange: (page) => {
-                console.log(page);
-              },
-              pageSize: 5,
-              align: "center",
-            }}
-            dataSource={filteredArticles}
-            style={{ width: "700px" }}
-            renderItem={(item) => (
-              <SingleArticle
-                authorId={item.author.id}
-                id={item.id}
-                name={item.author.name}
-                content={item.content}
-              />
-            )}
-          />
-        )}
-      </Flex>
-    </main>
+      )}
+    </Flex>
   );
 };
 

@@ -13,6 +13,8 @@ model User {
   password String
   name     String
   articles Article[]
+  chats    Chat[]    @relation("ChatParticipants")
+  message  Message[]
 }
 
 model Article {
@@ -20,4 +22,21 @@ model Article {
   content  String
   author   User?   @relation(fields: [authorId], references: [id])
   authorId String?
+}
+
+model Chat {
+  id           String    @id @default(cuid())
+  participants User[]    @relation("ChatParticipants")
+  messages     Message[]
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  content    String
+  sender     User     @relation(fields: [senderId], references: [id])
+  senderName String
+  senderId   String
+  chat       Chat     @relation(fields: [chatId], references: [id])
+  chatId     String
+  createdAt  DateTime @default(now())
 }

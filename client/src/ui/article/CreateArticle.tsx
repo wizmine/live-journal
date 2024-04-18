@@ -4,9 +4,7 @@ import { useCreateArticle } from "@/hooks/useCreateArticle";
 import { Button, Input, Space } from "antd";
 import React, { useState } from "react";
 
-type Props = {};
-
-const CreateArticle = (props: Props) => {
+const CreateArticle = () => {
   const { createArticle } = useCreateArticle();
   const [newArticle, setNewArticle] = useState("");
 
