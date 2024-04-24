@@ -3,10 +3,10 @@
 import React, { useEffect, useState } from "react";
 import { Select, Tabs } from "antd";
 import Messages from "@/components/Messages";
-import { useAuth } from "@/hooks/useAuth";
-import { useAllUsers } from "@/hooks/useAllUsers";
-import { useCreateChat } from "@/hooks/useCreateChat";
-import { useConnectSocket } from "@/hooks/useConnectSocket";
+import { useAuth } from "@/hooks/auth/useAuth";
+import { useAllUsers } from "@/hooks/user/useAllUsers";
+import { useCreateChat } from "@/hooks/chat/useCreateChat";
+import { useConnectSocket } from "@/hooks/socket/useConnectSocket";
 
 const Chat = () => {
   const [isShow, setIsShow] = useState(false);

@@ -1,4 +1,4 @@
-import { useDeleteArticle } from "@/hooks/useDeleteArticle";
+import { useDeleteArticle } from "@/hooks/article/useDeleteArticle";
 import { Button } from "antd";
 import React from "react";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuth } from "@/hooks/useAuth";
+import { useAuth } from "@/hooks/auth/useAuth";
 import ArticleEditScreen from "@/ui/article/ArticleEditScreen";
 import ArticleScreen from "@/ui/article/ArticleScreen";
 import { Flex } from "antd";

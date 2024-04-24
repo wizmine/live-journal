@@ -1,6 +1,6 @@
 import SocketApi from "@/api/socket-api";
-import { useAuth } from "@/hooks/useAuth";
-import { useUpdateUser } from "@/hooks/useUpdateUser";
+import { useAuth } from "@/hooks/auth/useAuth";
+import { useUpdateUser } from "@/hooks/user/useUpdateUser";
 import { Button, Flex, Input, Space } from "antd";
 import React, { useState } from "react";
 
@@ -20,7 +20,6 @@ const Messages = ({ messages, chatId }: Props) => {
   const [newMessage, setNewMessage] = useState("");
   const { updateUser } = useUpdateUser();
   const { user } = useAuth();
-  console.log(user);
 
   const handleSendMessage = () => {
     if (!newMessage.trim()) return;

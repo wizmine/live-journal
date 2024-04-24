@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { Flex, Input, List, Spin } from "antd";
-import { useArticles } from "@/hooks/useArticles";
-import { useAuth } from "@/hooks/useAuth";
+import { useArticles } from "@/hooks/article/useArticles";
+import { useAuth } from "@/hooks/auth/useAuth";
 import SingleArticle from "@/components/SingleArticle";
 import CreateArticle from "@/ui/article/CreateArticle";
 

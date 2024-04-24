@@ -1,6 +1,6 @@
 "use client";
 
-import { useCreateArticle } from "@/hooks/useCreateArticle";
+import { useCreateArticle } from "@/hooks/article/useCreateArticle";
 import { Button, Input, Space } from "antd";
 import React, { useState } from "react";
 

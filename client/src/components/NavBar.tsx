@@ -4,7 +4,7 @@ import React from "react";
 import LogoutButton from "../ui/buttons/LogoutButton";
 import { Button } from "antd";
 import Link from "next/link";
-import { useAuth } from "@/hooks/useAuth";
+import { useAuth } from "@/hooks/auth/useAuth";
 
 const NavBar = () => {
   const { user } = useAuth();

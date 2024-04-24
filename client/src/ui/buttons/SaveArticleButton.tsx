@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Button } from "antd";
-import { useUpdateArticle } from "@/hooks/useUpdateArticle";
+import { useUpdateArticle } from "@/hooks/article/useUpdateArticle";
 
 type Props = {
   id: string;
